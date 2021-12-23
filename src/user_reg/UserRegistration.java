@@ -21,7 +21,7 @@ public class UserRegistration {
 	public void password() {
 		System.out.println("enter password");
 		String password = scanner.nextLine();
-		String validPassword = "[a-z A-Z]{8}";
+		String validPassword = "((?=.*[A-Z])(?=.*[a-z])).{8}";
 		Pattern compiledPassword = Pattern.compile(validPassword);
 		Matcher pinmatcher = compiledPassword.matcher(password);
 		if (pinmatcher.matches()) {
