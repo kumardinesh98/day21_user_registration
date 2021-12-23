@@ -8,17 +8,24 @@ public class UserRegistration {
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		String name ="^[A-Z]+[a-z]{3,}";
-		Pattern fname = Pattern.compile(name);
+		String validName ="^[A-Z]+[a-z]{3,}";
+		Pattern compiledName = Pattern.compile(validName);
+		UserRegistration userRegistration = new UserRegistration();
 		System.out.println("enter the name");
 		String firstName = scanner.nextLine();
-		Matcher pinmatcher = fname.matcher(firstName);
-		if (pinmatcher.matches()) {
-			System.out.println(firstName + " fine");
-		} else {
-			System.out.println(firstName + " not valid");
-		}
+		userRegistration.check(compiledName, firstName);
+		System.out.println("enter last name");
+		String secondName = scanner.nextLine();
+		userRegistration.check(compiledName, secondName);
 	}
 	
+	public void check(Pattern con, String name) {
+		Matcher pinmatcher = con.matcher(name);
+		if (pinmatcher.matches()) {
+			System.out.println(name + " fine");
+		} else {
+			System.out.println(name + " not valid");
+		}
+	}
 }
 
