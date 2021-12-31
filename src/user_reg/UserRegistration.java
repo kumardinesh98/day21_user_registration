@@ -9,6 +9,7 @@ public class UserRegistration {
 	Scanner scanner = new Scanner(System.in);
 	
 	public static void main(String[] args) {
+		
 		UserRegistration userRegistration = new UserRegistration();
 		Scanner scanner = new Scanner(System.in);
 		
@@ -30,9 +31,9 @@ public class UserRegistration {
 
 		System.out.println("enter the second name");
 		String userPassword = scanner.nextLine();
-		userRegistration.password(userPassword);
-		
+		userRegistration.password(userPassword);	
 	}
+	
 	public boolean password(String password) {
 		
 		String validPassword = "^.*(?=.{8})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]{1}).*$";
