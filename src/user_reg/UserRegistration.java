@@ -10,58 +10,82 @@ public class UserRegistration {
 	
 	public static void main(String[] args) {
 		UserRegistration userRegistration = new UserRegistration();
-		userRegistration.password();
-		userRegistration.mobileNum();
 		Scanner scanner = new Scanner(System.in);
-		userRegistration.checkName("Abcde");
-		userRegistration.checkName("Fghij");
-		userRegistration.email("hbbggb");
+		
+		System.out.println("enter rthe first name");
+		String firstName= scanner.nextLine();
+		userRegistration.checkName(firstName);
+		
+		System.out.println("enter the second name");
+		String secondName = scanner.nextLine();
+		userRegistration.checkName(secondName);
+		
+		System.out.println("enter the email id");
+		String emailid = scanner.nextLine();
+		userRegistration.email(emailid);
+		
+		System.out.println("enter the mobile number");
+		String mobile = scanner.nextLine();
+		userRegistration.mobileNum(mobile);
+
+		System.out.println("enter the second name");
+		String userPassword = scanner.nextLine();
+		userRegistration.password(userPassword);
+		
 	}
-	
-	public void password() {
-		System.out.println("enter password");
-		String password = scanner.nextLine();
+	public boolean password(String password) {
+		
 		String validPassword = "^.*(?=.{8})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]{1}).*$";
 		Pattern compiledPassword = Pattern.compile(validPassword);
 		Matcher pinmatcher = compiledPassword.matcher(password);
 		if (pinmatcher.matches()) {
 			System.out.println(password + " is fine");
+			return true;
 		} else {
 			System.out.println(password + " not valid");
+			return false;
 		}
 	}
-	public String email(String emailId) {
+	
+	public boolean email(String emailId) {
+		
 		String validEmail = "^abc+.[a-z]*[@bl.co]+[.a-z]*";
 		Pattern compiledName = Pattern.compile(validEmail);
 		Matcher pinmatcher = compiledName.matcher(emailId);
 		if (pinmatcher.matches()) {
-			return "fine";
+			System.out.println(emailId + " is fine");
+			return true;
 		} else {
-			return "invalid";
+			System.out.println(emailId + " not valid");
+			return false;
 		}
 	}
 	
-	public void mobileNum() {
-		System.out.println("enter mobile number");
-		String mobileNumber = scanner.nextLine();
+	public boolean mobileNum(String mobileNumber) {
+		
 		String validNumber = "[91]+\s[0-9]{10}";
 		Pattern compiledName = Pattern.compile(validNumber);
 		Matcher pinmatcher = compiledName.matcher(mobileNumber);
 		if (pinmatcher.matches()) {
 			System.out.println(mobileNumber + " is fine");
+			return true;
 		} else {
 			System.out.println(mobileNumber + " not valid");
+			return false;
 		}
 	}
+
 	
-	public String checkName(String name) {
+	public boolean checkName(String name) {
 		String validName ="^[A-Z]+[a-z]{3,}";
 		Pattern compiledName = Pattern.compile(validName);
 		Matcher pinmatcher = compiledName.matcher(name);
 		if (pinmatcher.matches()) {
-			return "fine";
+			System.out.println(name + " is fine");
+			return true;
 		} else {
-			return "invalid";
+			System.out.println(name + " not valid");
+			return false;
 		}
 	}
 }
