@@ -19,18 +19,18 @@ public class PUserRegistration {
 	private String emailId;
 	private String password;
 
-	private boolean expectedFirstName;
-	private boolean expectedLastName;
-	private boolean expectedForNumber;
-	private boolean expectedForEmail;
-	private boolean expecteForPassword;
+	private String expectedFirstName;
+	private String expectedLastName;
+	private String expectedForNumber;
+	private String expectedForEmail;
+	private String expecteForPassword;
 	
 	private UserRegistration userRegistration ;
 	
 
 	public PUserRegistration(String firstName, String lastName, String contactNumber, String emailId,
-			String password, boolean expectedFirstName, boolean expectedLastName, boolean expectedForNumber,
-			boolean expectedForEmail, boolean expecteForPassword) {
+			String password, String expectedFirstName, String expectedLastName, String expectedForNumber,
+			String expectedForEmail, String expecteForPassword) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -53,8 +53,8 @@ public class PUserRegistration {
 
 	@Parameterized.Parameters
 	public static Collection parameter() {
-		return Arrays.asList(new Object[][] { { "", "", "", "","",false, false, false, false, false },
-				{ "Dinesh", "Kumar", "91 7200762705", "abc.xyz@bl.co.in", "Dinesh1@",true,true, true, true, true } });
+		return Arrays.asList(new Object[][] { { "", "", "", "","","invalid", "invalid", "invalid", "invalid", "invalid" },
+				{ "Dinesh", "Kumar", "91 7200762705", "abc.xyz@bl.co.in", "Dinesh1@","valid","valid", "valid", "valid", "valid" } });
 	}
 	 
 	

@@ -29,65 +29,90 @@ public class UserRegistration {
 		String mobile = scanner.nextLine();
 		userRegistration.mobileNum(mobile);
 
-		System.out.println("enter the second name");
+		System.out.println("enter the password");
 		String userPassword = scanner.nextLine();
 		userRegistration.password(userPassword);	
 	}
 	
-	public boolean password(String password) {
-		
-		String validPassword = "^.*(?=.{8})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]{1}).*$";
-		Pattern compiledPassword = Pattern.compile(validPassword);
-		Matcher pinmatcher = compiledPassword.matcher(password);
-		if (pinmatcher.matches()) {
-			System.out.println(password + " is fine");
-			return true;
-		} else {
-			System.out.println(password + " not valid");
-			return false;
+	public String password(String password) {
+		try {
+			String validPassword = "^.*(?=.{8})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]{1}).*$";
+			Pattern compiledPassword = Pattern.compile(validPassword);
+			Matcher pinmatcher = compiledPassword.matcher(password);
+			if (pinmatcher.matches()) {
+				System.out.println(password + " is fine");
+				return "valid";
+			} else {
+				
+				throw new Exception();
+			}
 		}
+		catch (Exception e){
+			e.getStackTrace();
+			return "invalid";
+		}
+		
+		
+		
 	}
 	
-	public boolean email(String emailId) {
-		
-		String validEmail = "^abc+.[a-z]*[@bl.co]+[.a-z]*";
-		Pattern compiledName = Pattern.compile(validEmail);
-		Matcher pinmatcher = compiledName.matcher(emailId);
-		if (pinmatcher.matches()) {
-			System.out.println(emailId + " is fine");
-			return true;
-		} else {
-			System.out.println(emailId + " not valid");
-			return false;
+	public String email(String emailId) {
+		try {
+			String validEmail = "^abc+.[a-z]*[@bl.co]+[.a-z]*";
+			Pattern compiledName = Pattern.compile(validEmail);
+			Matcher pinmatcher = compiledName.matcher(emailId);
+			if (pinmatcher.matches()) {
+				return "valid";
+			} else {
+				throw new Exception();
+			}
 		}
+		catch (Exception e){
+			e.getStackTrace();
+			return "invalid";
+		}
+		
 	}
 	
-	public boolean mobileNum(String mobileNumber) {
-		
-		String validNumber = "[91]+\s[0-9]{10}";
-		Pattern compiledName = Pattern.compile(validNumber);
-		Matcher pinmatcher = compiledName.matcher(mobileNumber);
-		if (pinmatcher.matches()) {
-			System.out.println(mobileNumber + " is fine");
-			return true;
-		} else {
-			System.out.println(mobileNumber + " not valid");
-			return false;
+	public String mobileNum(String mobileNumber) {
+		try {
+			String validNumber = "[91]+\s[0-9]{10}";
+			Pattern compiledName = Pattern.compile(validNumber);
+			Matcher pinmatcher = compiledName.matcher(mobileNumber);
+			if (pinmatcher.matches()) {
+				System.out.println(mobileNumber + " is fine");
+				return "valid";
+			} else {
+				throw new Exception();
+
+			}
 		}
+		catch (Exception e){
+			e.getStackTrace();
+			return "invalid";
+		}
+		
+		
 	}
 
 	
-	public boolean checkName(String name) {
-		String validName ="^[A-Z]+[a-z]{3,}";
-		Pattern compiledName = Pattern.compile(validName);
-		Matcher pinmatcher = compiledName.matcher(name);
-		if (pinmatcher.matches()) {
-			System.out.println(name + " is fine");
-			return true;
-		} else {
-			System.out.println(name + " not valid");
-			return false;
+	public String checkName(String name) {
+		try {
+			String validName ="^[A-Z]+[a-z]{3,}";
+			Pattern compiledName = Pattern.compile(validName);
+			Matcher pinmatcher = compiledName.matcher(name);
+			if (pinmatcher.matches()) {
+				return "valid";
+			} else {
+				throw new Exception();
+
+			}
 		}
+		catch (Exception e){
+			e.getStackTrace();
+			return "invalid";
+		}
+		
 	}
 }
 
